@@ -2,25 +2,31 @@
 cask "rp" do
   binary "rp", target: "rc"
 
-  version "1.62.1"
+  on_macos do
+    postflight_steps do
+      run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{staged_path}}/rp"], must_succeed: false
+    end
+  end
+
+  version "1.62.2"
 
   on_macos do
     on_arm do
-      sha256 "2de80e6e2a99b5afce01ea858d15f5a4acfc84e90c01d9983aae9a01443e4869"
+      sha256 "b3f8e5db42b65380848c4f38443dc95a30bac5f0a53fbcfae9562d9b9722d96c"
       url "https://github.com/replypen/replypen-cli/releases/download/v#{version}/rp_#{version}_darwin_arm64.tar.gz"
     end
     on_intel do
-      sha256 "fe892b19af8b659f4838d3d5f2a8fc9f3896ea3fb431afc526b14ce04f488ebd"
+      sha256 "4cd4cb9667bc0c05b5995442a8165fdbb664646f6ac2ffcbb409585bef6f0bbd"
       url "https://github.com/replypen/replypen-cli/releases/download/v#{version}/rp_#{version}_darwin_amd64.tar.gz"
     end
   end
   on_linux do
     on_arm do
-      sha256 "c554dced3e746858abc70c3fa715bd95f493c0d90849bea25026dbdaffdb3557"
+      sha256 "327421b269ea044d4292785d8c84b69a3de8d39ed136f910c1b7970ff1d8d24c"
       url "https://github.com/replypen/replypen-cli/releases/download/v#{version}/rp_#{version}_linux_arm64.tar.gz"
     end
     on_intel do
-      sha256 "993f98a3ae61ebddc900106a3c1e779191d8f611039af5f983494345500c3489"
+      sha256 "f2cab34127391ed1ea3446845a0a80f1b7095e53a5bd5a27f17819839ed06fb1"
       url "https://github.com/replypen/replypen-cli/releases/download/v#{version}/rp_#{version}_linux_amd64.tar.gz"
     end
   end
@@ -34,12 +40,6 @@ cask "rp" do
   end
 
   binary "rp"
-
-  postflight do
-    if OS.mac?
-      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/rp"]
-    end
-  end
 
   # No zap stanza required
 end
