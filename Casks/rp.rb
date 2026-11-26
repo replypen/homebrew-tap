@@ -8,25 +8,25 @@ cask "rp" do
     end
   end
 
-  version "1.84.0"
+  version "1.85.0"
 
   on_macos do
     on_arm do
-      sha256 "feeb7709b542aad4f78f1f4cb03bd4e823cc698d62c53fbd68a65055799a55f4"
+      sha256 "91f7abc0c59dde188be4af070d0e6ca650dfdc9c3ad13b3d324ca379a712862f"
       url "https://github.com/replypen/replypen-cli/releases/download/v#{version}/rp_#{version}_darwin_arm64.tar.gz"
     end
     on_intel do
-      sha256 "98f2c7d861ae8d3ee60f9886a116364840dbf8fc5e9dfa6fc28153925390bd3c"
+      sha256 "a700a4aaa078d96be9d41e756d21cf2cb5138a21c1383dae08e609e44caa90f1"
       url "https://github.com/replypen/replypen-cli/releases/download/v#{version}/rp_#{version}_darwin_amd64.tar.gz"
     end
   end
   on_linux do
     on_arm do
-      sha256 "3226e43ac95956c0616367220885c1779af0a5a52868937b885d6db04f38690d"
+      sha256 "7daaae96c471dba951f93a037205bc9c150c89660fd705d38983943260af5d2c"
       url "https://github.com/replypen/replypen-cli/releases/download/v#{version}/rp_#{version}_linux_arm64.tar.gz"
     end
     on_intel do
-      sha256 "42c0368a892e396884aa7ba67425f60d876b92f5a70f933a8729f27de020d7c3"
+      sha256 "38f2fea288d445da9fe9d3fce25e5d5e834b48e5187a59b1570cd454234f720d"
       url "https://github.com/replypen/replypen-cli/releases/download/v#{version}/rp_#{version}_linux_amd64.tar.gz"
     end
   end
